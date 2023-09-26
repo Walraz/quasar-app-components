@@ -12,7 +12,7 @@
     input-debounce="0"
     popup-content-class="no-border-radius"
     :options="filteredOptions"
-    :virtual-scroll-item-size="40"
+    :virtual-scroll-item-size="virtualScrolltemSize"
     @filter="filterFnAutoselect"
     @clear="onClear"
     @new-value="createValue"
@@ -63,9 +63,11 @@ const props = withDefaults(
     multiple?: boolean
     newValue?: boolean
     options: Options
+    virtualScrolltemSize?: number
   }>(),
   {
     multiple: () => false,
+    virtualScrolltemSize: () => 39,
   },
 )
 
@@ -96,7 +98,9 @@ const filterFnAutoselect: QSelectProps['onFilter'] = (val, update) => {
     (ref) => {
       if (val !== '' && ref.options && ref.options.length > 0) {
         ref.setOptionIndex(-1) // reset optionIndex in case there is something selected
-        ref.moveOptionSelection(1, true) // focus the first selectable option and do not update the input-value
+        if (!props.newValue) {
+          ref.moveOptionSelection(1, true) // focus the first selectable option and do not update the input-value
+        }
       }
     },
   )

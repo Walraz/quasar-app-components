@@ -48,7 +48,7 @@ import {
 import { inputStyleProps } from './common/inputStyleProps'
 import { buttonStyleProps } from './common/buttonStyleProps'
 import { inputFormRule } from './common/inputFormRule'
-import { AppForm, AppSelect } from 'vue-app-form'
+import { AppForm, AppSelect } from 'quasar-app-components'
 
 export default defineComponent({
   components: {

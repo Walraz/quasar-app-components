@@ -21,6 +21,10 @@ declare const _default: import("vue").DefineComponent<{
         type: import("vue").PropType<Options>;
         required: true;
     };
+    virtualScrolltemSize: {
+        type: import("vue").PropType<number>;
+        default: () => 39;
+    };
 }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, "update:modelValue"[], "update:modelValue", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     modelValue: {
         type: import("vue").PropType<ModelValue | ModelValue[]>;
@@ -37,9 +41,14 @@ declare const _default: import("vue").DefineComponent<{
         type: import("vue").PropType<Options>;
         required: true;
     };
+    virtualScrolltemSize: {
+        type: import("vue").PropType<number>;
+        default: () => 39;
+    };
 }>> & {
     "onUpdate:modelValue"?: ((...args: any[]) => any) | undefined;
 }, {
     multiple: boolean;
+    virtualScrolltemSize: number;
 }, {}>;
 export default _default;

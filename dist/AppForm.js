@@ -4016,7 +4016,8 @@ const Kl = (e) => ["add", "add-unique", "toggle"].includes(e), ja = ".*+?^${}()|
     modelValue: {},
     multiple: { type: Boolean, default: () => !1 },
     newValue: { type: Boolean },
-    options: {}
+    options: {},
+    virtualScrolltemSize: { default: () => 39 }
   },
   emits: ["update:modelValue"],
   setup(e, { emit: t }) {
@@ -4030,7 +4031,7 @@ const Kl = (e) => ["add", "add-unique", "toggle"].includes(e), ja = ".*+?^${}()|
           o.value = r.toLowerCase();
         },
         (v) => {
-          r !== "" && v.options && v.options.length > 0 && (v.setOptionIndex(-1), v.moveOptionSelection(1, !0));
+          r !== "" && v.options && v.options.length > 0 && (v.setOptionIndex(-1), n.newValue || v.moveOptionSelection(1, !0));
         }
       );
     }, f = () => {
@@ -4051,7 +4052,7 @@ const Kl = (e) => ["add", "add-unique", "toggle"].includes(e), ja = ".*+?^${}()|
       "input-debounce": "0",
       "popup-content-class": "no-border-radius",
       options: a.value,
-      "virtual-scroll-item-size": 40,
+      "virtual-scroll-item-size": r.virtualScrolltemSize,
       onFilter: u,
       onClear: f,
       onNewValue: g
@@ -4103,7 +4104,7 @@ const Kl = (e) => ["add", "add-unique", "toggle"].includes(e), ja = ".*+?^${}()|
         })
       ]),
       _: 1
-    }, 8, ["model-value", "multiple", "use-chips", "options"]));
+    }, 8, ["model-value", "multiple", "use-chips", "options", "virtual-scroll-item-size"]));
   }
 }), Wa = b("div", { class: "q-space" }), Qa = ee({
   name: "QSpace",
