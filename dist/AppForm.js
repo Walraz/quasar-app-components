@@ -4026,7 +4026,7 @@ const Kl = (e) => ["add", "add-unique", "toggle"].includes(e), ja = ".*+?^${}()|
     const n = e, l = (r) => {
       t("update:modelValue", r);
     }, o = N(""), i = N([]), a = d(() => [...i.value, ...n.options].filter(
-      (r) => !o.value || (n.exactFilterMatch ? `${r.label}`.toLowerCase() === o.value.toLowerCase() : `${r.label}`.toLowerCase().includes(o.value.toLowerCase()))
+      (r) => !o.value || (n.exactFilterMatch ? `${r.label}`.toLowerCase() === `${o.value}`.toLowerCase() : `${r.label}`.toLowerCase().includes(`${o.value}`.toLowerCase()))
     )), u = (r, m) => {
       o.value = r.toLowerCase(), m(
         () => {

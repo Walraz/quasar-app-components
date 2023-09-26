@@ -90,8 +90,10 @@ const filteredOptions = computed(() => {
     (x) =>
       !filterVal.value ||
       (props.exactFilterMatch
-        ? `${x.label}`.toLowerCase() === filterVal.value.toLowerCase()
-        : `${x.label}`.toLowerCase().includes(filterVal.value.toLowerCase())),
+        ? `${x.label}`.toLowerCase() === `${filterVal.value}`.toLowerCase()
+        : `${x.label}`
+            .toLowerCase()
+            .includes(`${filterVal.value}`.toLowerCase())),
   )
 })
 

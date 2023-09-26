@@ -82,6 +82,11 @@ const schema: AppFormSchemaField[] = [
 
 Easy to use quasar q-select with filtering, add new value, checkbox list.
 
+| Props               |                                   |
+| ------------------- | --------------------------------- |
+| `exactFilterMatch`  | Filter exact                      |
+| `transformNewValue` | Transform new-value label & value |
+
 ```vue
 <script setup lang="ts">
 import { ref } from 'vue'

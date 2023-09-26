@@ -2,7 +2,7 @@
   "name": "quasar-app-components",
   "author": "Rasmus Hallström",
   "repository": "https://github.com/Walraz/quasar-app-components",
-  "version": "0.0.30",
+  "version": "0.0.31",
   "type": "module",
   "main": "./dist/AppForm.umd.cjs",
   "module": "./dist/AppForm.js",
