@@ -4018,21 +4018,22 @@ const Kl = (e) => ["add", "add-unique", "toggle"].includes(e), ja = ".*+?^${}()|
     newValue: { type: Boolean },
     options: {},
     virtualScrolltemSize: { default: () => 24 },
-    transformNewValueFn: { type: Function, default: (e) => e }
+    transformNewValueFn: { type: Function, default: (e) => e },
+    exactFilterMatch: { type: Boolean, default: !1 }
   },
   emits: ["update:modelValue"],
   setup(e, { emit: t }) {
     const n = e, l = (r) => {
       t("update:modelValue", r);
     }, o = N(""), i = N([]), a = d(() => [...i.value, ...n.options].filter(
-      (r) => !o.value || `${r.label}`.toLocaleLowerCase().includes(o.value)
+      (r) => !o.value || (n.exactFilterMatch ? `${r.label}`.toLowerCase() === o.value.toLowerCase() : `${r.label}`.toLowerCase().includes(o.value.toLowerCase()))
     )), u = (r, m) => {
       o.value = r.toLowerCase(), m(
         () => {
           o.value = r.toLowerCase();
         },
         (v) => {
-          r !== "" && v.options && v.options.length > 0 && (v.setOptionIndex(-1), n.newValue || v.moveOptionSelection(1, !0));
+          r !== "" && v.options && v.options.length > 0 && (v.setOptionIndex(-1), v.moveOptionSelection(1, !0));
         }
       );
     }, f = () => {
@@ -4040,7 +4041,7 @@ const Kl = (e) => ["add", "add-unique", "toggle"].includes(e), ja = ".*+?^${}()|
     }, g = (r, m) => {
       n.newValue && (i.value.push({
         value: n.transformNewValueFn(r),
-        label: r
+        label: n.transformNewValueFn(r)
       }), m(r, "add-unique"));
     };
     return (r, m) => (le(), pe(Ka, {

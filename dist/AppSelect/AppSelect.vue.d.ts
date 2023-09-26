@@ -29,6 +29,10 @@ declare const _default: import("vue").DefineComponent<{
         type: import("vue").PropType<(v: string) => string>;
         default: (v: string) => string;
     };
+    exactFilterMatch: {
+        type: import("vue").PropType<boolean>;
+        default: boolean;
+    };
 }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, "update:modelValue"[], "update:modelValue", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     modelValue: {
         type: import("vue").PropType<ModelValue | ModelValue[]>;
@@ -53,11 +57,16 @@ declare const _default: import("vue").DefineComponent<{
         type: import("vue").PropType<(v: string) => string>;
         default: (v: string) => string;
     };
+    exactFilterMatch: {
+        type: import("vue").PropType<boolean>;
+        default: boolean;
+    };
 }>> & {
     "onUpdate:modelValue"?: ((...args: any[]) => any) | undefined;
 }, {
     multiple: boolean;
     virtualScrolltemSize: number;
     transformNewValueFn: (v: string) => string;
+    exactFilterMatch: boolean;
 }, {}>;
 export default _default;

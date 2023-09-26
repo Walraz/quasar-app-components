@@ -65,11 +65,13 @@ const props = withDefaults(
     options: Options
     virtualScrolltemSize?: number
     transformNewValueFn?: (v: string) => string
+    exactFilterMatch?: boolean
   }>(),
   {
     multiple: () => false,
     virtualScrolltemSize: () => 24,
     transformNewValueFn: (v: string) => v,
+    exactFilterMatch: false,
   },
 )
 
@@ -87,7 +89,9 @@ const filteredOptions = computed(() => {
   return [...customOptions.value, ...props.options].filter(
     (x) =>
       !filterVal.value ||
-      `${x.label}`.toLocaleLowerCase().includes(filterVal.value),
+      (props.exactFilterMatch
+        ? `${x.label}`.toLowerCase() === filterVal.value.toLowerCase()
+        : `${x.label}`.toLowerCase().includes(filterVal.value.toLowerCase())),
   )
 })
 
@@ -100,9 +104,7 @@ const filterFnAutoselect: QSelectProps['onFilter'] = (val, update) => {
     (ref) => {
       if (val !== '' && ref.options && ref.options.length > 0) {
         ref.setOptionIndex(-1) // reset optionIndex in case there is something selected
-        if (!props.newValue) {
-          ref.moveOptionSelection(1, true) // focus the first selectable option and do not update the input-value
-        }
+        ref.moveOptionSelection(1, true) // focus the first selectable option and do not update the input-value
       }
     },
   )
@@ -116,7 +118,7 @@ const createValue: QSelectProps['onNewValue'] = (val, done) => {
   if (!props.newValue) return
   customOptions.value.push({
     value: props.transformNewValueFn(val),
-    label: val,
+    label: props.transformNewValueFn(val),
   })
   done(val, 'add-unique')
 }
