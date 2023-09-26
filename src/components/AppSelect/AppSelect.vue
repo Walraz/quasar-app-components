@@ -64,10 +64,12 @@ const props = withDefaults(
     newValue?: boolean
     options: Options
     virtualScrolltemSize?: number
+    transformNewValueFn?: (v: string) => string
   }>(),
   {
     multiple: () => false,
-    virtualScrolltemSize: () => 39,
+    virtualScrolltemSize: () => 24,
+    transformNewValueFn: (v: string) => v,
   },
 )
 
@@ -112,7 +114,10 @@ const onClear = () => {
 
 const createValue: QSelectProps['onNewValue'] = (val, done) => {
   if (!props.newValue) return
-  customOptions.value.push({ value: val, label: val })
+  customOptions.value.push({
+    value: props.transformNewValueFn(val),
+    label: val,
+  })
   done(val, 'add-unique')
 }
 </script>

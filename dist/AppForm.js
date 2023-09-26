@@ -4017,7 +4017,8 @@ const Kl = (e) => ["add", "add-unique", "toggle"].includes(e), ja = ".*+?^${}()|
     multiple: { type: Boolean, default: () => !1 },
     newValue: { type: Boolean },
     options: {},
-    virtualScrolltemSize: { default: () => 39 }
+    virtualScrolltemSize: { default: () => 24 },
+    transformNewValueFn: { type: Function, default: (e) => e }
   },
   emits: ["update:modelValue"],
   setup(e, { emit: t }) {
@@ -4037,7 +4038,10 @@ const Kl = (e) => ["add", "add-unique", "toggle"].includes(e), ja = ".*+?^${}()|
     }, f = () => {
       t("update:modelValue", n.multiple ? [] : null);
     }, g = (r, m) => {
-      n.newValue && (i.value.push({ value: r, label: r }), m(r, "add-unique"));
+      n.newValue && (i.value.push({
+        value: n.transformNewValueFn(r),
+        label: r
+      }), m(r, "add-unique"));
     };
     return (r, m) => (le(), pe(Ka, {
       "model-value": r.modelValue,
