@@ -1,13 +1,12 @@
-type ModelValue = string | number | null | undefined;
 type Options = {
     label: string;
-    value: string | number;
+    value: any;
     caption?: string | number;
     disable?: boolean;
 }[];
 declare const _default: import("vue").DefineComponent<{
     modelValue: {
-        type: import("vue").PropType<ModelValue | ModelValue[]>;
+        type: import("vue").PropType<any>;
         required: true;
     };
     multiple: {
@@ -35,7 +34,7 @@ declare const _default: import("vue").DefineComponent<{
     };
 }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, "update:modelValue"[], "update:modelValue", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     modelValue: {
-        type: import("vue").PropType<ModelValue | ModelValue[]>;
+        type: import("vue").PropType<any>;
         required: true;
     };
     multiple: {

@@ -48,11 +48,11 @@
 import { QSelectProps } from 'quasar'
 import { computed, ref } from 'vue'
 
-type ModelValue = string | number | null | undefined
+type ModelValue = any
 
 type Options = {
   label: string
-  value: string | number
+  value: any
   caption?: string | number
   disable?: boolean
 }[]
