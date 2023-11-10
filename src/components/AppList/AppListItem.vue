@@ -32,7 +32,7 @@ import { QListProps } from 'quasar'
 const p = withDefaults(
   defineProps<{
     props: AppListItemProps
-    listProps: QListProps
+    listProps?: QListProps
   }>(),
   {
     listProps: () => ({}),

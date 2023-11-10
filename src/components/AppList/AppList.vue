@@ -3,7 +3,8 @@
     <AppListItem
       :list-props="props.props"
       :props="item"
-      v-for="item of visibleItems"
+      :key="$i"
+      v-for="(item, $i) of visibleItems"
     />
   </q-list>
 </template>
@@ -17,7 +18,7 @@ import { QListProps } from 'quasar'
 const props = withDefaults(
   defineProps<{
     items: AppListItemProps[]
-    props: QListProps
+    props?: QListProps
   }>(),
   {
     props: () => ({}),

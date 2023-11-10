@@ -7,7 +7,6 @@ declare const _default: import("vue").DefineComponent<{
     };
     listProps: {
         type: import("vue").PropType<QListProps>;
-        required: true;
         default: () => {};
     };
 }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
@@ -17,7 +16,6 @@ declare const _default: import("vue").DefineComponent<{
     };
     listProps: {
         type: import("vue").PropType<QListProps>;
-        required: true;
         default: () => {};
     };
 }>>, {

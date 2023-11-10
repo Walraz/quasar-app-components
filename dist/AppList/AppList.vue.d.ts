@@ -3,7 +3,6 @@ import { QListProps } from 'quasar';
 declare const _default: import("vue").DefineComponent<{
     props: {
         type: import("vue").PropType<QListProps>;
-        required: true;
         default: () => {};
     };
     items: {
@@ -13,7 +12,6 @@ declare const _default: import("vue").DefineComponent<{
 }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     props: {
         type: import("vue").PropType<QListProps>;
-        required: true;
         default: () => {};
     };
     items: {

@@ -6423,10 +6423,11 @@ const Rr = ao(
     ));
     return (l, o) => (le(), pe(Or, _t({ style: { "min-width": "150px" } }, t.props), {
       default: ae(() => [
-        (le(!0), Oe(It, null, Cn(n.value, (i) => (le(), pe(Ar, {
+        (le(!0), Oe(It, null, Cn(n.value, (i, a) => (le(), pe(Ar, {
           "list-props": t.props,
-          props: i
-        }, null, 8, ["list-props", "props"]))), 256))
+          props: i,
+          key: a
+        }, null, 8, ["list-props", "props"]))), 128))
       ]),
       _: 1
     }, 16));
