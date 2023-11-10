@@ -1,5 +1,5 @@
 <template>
-  <q-list v-bind="props.props" separator dense style="min-width: 150px">
+  <q-list style="min-width: 150px" v-bind="props.props">
     <AppListItem
       :list-props="props.props"
       :props="item"

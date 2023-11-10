@@ -6421,11 +6421,7 @@ const Rr = ao(
     const t = e, n = d(() => t.items.filter(
       (l) => typeof l.visible == "boolean" ? l.visible : !0
     ));
-    return (l, o) => (le(), pe(Or, _t(t.props, {
-      separator: "",
-      dense: "",
-      style: { "min-width": "150px" }
-    }), {
+    return (l, o) => (le(), pe(Or, _t({ style: { "min-width": "150px" } }, t.props), {
       default: ae(() => [
         (le(!0), Oe(It, null, Cn(n.value, (i) => (le(), pe(Ar, {
           "list-props": t.props,

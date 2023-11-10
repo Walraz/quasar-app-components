@@ -201,7 +201,7 @@ const items = ref<AppListItemProps[]>([
 <template>
   <q-btn icon="mdi-dots-vertical">
     <q-menu square>
-      <AppList :items="items" :list-props="listProps" />
+      <AppList :items="items" :props="listProps" />
     </q-menu>
   </q-btn>
   <!-- or -->
