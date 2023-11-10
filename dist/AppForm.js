@@ -6398,7 +6398,8 @@ const Rr = ao(
           key: 3,
           square: "",
           anchor: "top end",
-          self: "top start"
+          self: "top start",
+          "no-focus": ""
         }, {
           default: ae(() => [
             ie(Fr, _t(i.listProps, { items: o.value }), null, 16, ["items"])

@@ -16,7 +16,7 @@
     </q-item-section>
 
     <template v-if="visibleItems.length">
-      <q-menu square anchor="top end" self="top start">
+      <q-menu square anchor="top end" self="top start" no-focus>
         <AppList v-bind="listProps" :items="visibleItems" />
       </q-menu>
     </template>
