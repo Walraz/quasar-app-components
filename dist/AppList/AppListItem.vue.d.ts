@@ -1,47 +1,26 @@
 import { AppListItemProps } from '..';
+import { QListProps } from 'quasar';
 declare const _default: import("vue").DefineComponent<{
-    componentProps: {
-        type: import("vue").PropType<import("quasar").QItem>;
+    props: {
+        type: import("vue").PropType<AppListItemProps>;
+        required: true;
     };
-    visible: {
-        type: import("vue").PropType<boolean>;
-    };
-    icon: {
-        type: import("vue").PropType<string>;
-    };
-    label: {
-        type: import("vue").PropType<string>;
-    };
-    color: {
-        type: import("vue").PropType<string>;
-    };
-    clickFn: {
-        type: import("vue").PropType<() => void>;
-    };
-    items: {
-        type: import("vue").PropType<AppListItemProps[]>;
+    listProps: {
+        type: import("vue").PropType<QListProps>;
+        required: true;
+        default: () => {};
     };
 }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
-    componentProps: {
-        type: import("vue").PropType<import("quasar").QItem>;
+    props: {
+        type: import("vue").PropType<AppListItemProps>;
+        required: true;
     };
-    visible: {
-        type: import("vue").PropType<boolean>;
+    listProps: {
+        type: import("vue").PropType<QListProps>;
+        required: true;
+        default: () => {};
     };
-    icon: {
-        type: import("vue").PropType<string>;
-    };
-    label: {
-        type: import("vue").PropType<string>;
-    };
-    color: {
-        type: import("vue").PropType<string>;
-    };
-    clickFn: {
-        type: import("vue").PropType<() => void>;
-    };
-    items: {
-        type: import("vue").PropType<AppListItemProps[]>;
-    };
-}>>, {}, {}>;
+}>>, {
+    listProps: QListProps;
+}, {}>;
 export default _default;

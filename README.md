@@ -171,6 +171,10 @@ Recursive list. Open nested items in new list menu
 import { ref } from 'vue'
 import { AppList, AppListItemProps } from 'quasar-app-components'
 
+const listProps: QListProps = {
+  dense: false,
+}
+
 const items = ref<AppListItemProps[]>([
   {
     // AppListitem props
@@ -197,7 +201,7 @@ const items = ref<AppListItemProps[]>([
 <template>
   <q-btn icon="mdi-dots-vertical">
     <q-menu square>
-      <AppList :items="items" />
+      <AppList :items="items" :list-props="listProps" />
     </q-menu>
   </q-btn>
   <!-- or -->

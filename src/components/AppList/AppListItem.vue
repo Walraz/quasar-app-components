@@ -1,15 +1,15 @@
 <template>
   <q-item
     v-close-popup="!Boolean(visibleItems.length)"
-    v-bind="componentProps"
+    v-bind="props.componentProps"
     clickable
     @click="onClick"
   >
-    <q-item-section side v-if="icon">
-      <q-icon size="16px" :name="icon" :color="color" />
+    <q-item-section side v-if="props.icon">
+      <q-icon size="16px" :name="props.icon" :color="props.color" />
     </q-item-section>
-    <q-item-section :class="textColor" v-if="label">
-      {{ label }}
+    <q-item-section :class="textColor" v-if="props.label">
+      {{ props.label }}
     </q-item-section>
     <q-item-section side v-if="visibleItems.length">
       <q-icon size="16px" name="mdi-chevron-right" />
@@ -17,7 +17,7 @@
 
     <template v-if="visibleItems.length">
       <q-menu square anchor="top end" self="top start">
-        <AppList :items="visibleItems" />
+        <AppList v-bind="listProps" :items="visibleItems" />
       </q-menu>
     </template>
   </q-item>
@@ -27,20 +27,29 @@
 import { computed } from 'vue'
 import AppList from './AppList.vue'
 import { AppListItemProps } from '..'
+import { QListProps } from 'quasar'
 
-const props = defineProps<AppListItemProps>()
+const p = withDefaults(
+  defineProps<{
+    props: AppListItemProps
+    listProps: QListProps
+  }>(),
+  {
+    listProps: () => ({}),
+  },
+)
 
 const textColor = computed(() => {
-  return `text-${props.color}`
+  return `text-${p.props.color}`
 })
 
 const onClick = () => {
-  if (!props.clickFn) return
-  props.clickFn()
+  if (!p.props.clickFn) return
+  p.props.clickFn()
 }
 
 const visibleItems = computed(() => {
-  return (props.items || []).filter((x) =>
+  return (p.props.items || []).filter((x) =>
     typeof x.visible === 'boolean' ? x.visible : true,
   )
 })

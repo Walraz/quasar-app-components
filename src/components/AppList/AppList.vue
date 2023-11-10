@@ -1,6 +1,10 @@
 <template>
-  <q-list separator dense style="min-width: 150px">
-    <AppListItem v-for="item of visibleItems" v-bind="item" />
+  <q-list v-bind="props.props" separator dense style="min-width: 150px">
+    <AppListItem
+      :list-props="props.props"
+      :props="item"
+      v-for="item of visibleItems"
+    />
   </q-list>
 </template>
 
@@ -8,10 +12,17 @@
 import { computed } from 'vue'
 import AppListItem from './AppListItem.vue'
 import { AppListItemProps } from '..'
+import { QListProps } from 'quasar'
 
-const props = defineProps<{
-  items: AppListItemProps[]
-}>()
+const props = withDefaults(
+  defineProps<{
+    items: AppListItemProps[]
+    props: QListProps
+  }>(),
+  {
+    props: () => ({}),
+  },
+)
 
 const visibleItems = computed(() => {
   return props.items.filter((x) =>
