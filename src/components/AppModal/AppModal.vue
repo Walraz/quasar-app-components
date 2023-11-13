@@ -57,7 +57,7 @@ import { AppModalProps } from '..'
 
 type ErrorType = 'submit' | 'dependecy'
 
-const props = defineProps<AppModalProps<{}>>()
+const props = defineProps<AppModalProps<object>>()
 
 defineEmits({
   ...useDialogPluginComponent.emitsObject,

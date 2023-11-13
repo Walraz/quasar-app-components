@@ -80,7 +80,7 @@ declare const _default: import("vue").DefineComponent<{
     slot: {
         type: import("vue").PropType<{
             component: import("vue").Component;
-            componentProps?: {} | undefined;
+            componentProps?: object | undefined;
         }>;
         required: true;
     };
@@ -88,7 +88,7 @@ declare const _default: import("vue").DefineComponent<{
         type: import("vue").PropType<string>;
     };
     dependencies: {
-        type: import("vue").PropType<() => Promise<any>[]>;
+        type: import("vue").PropType<() => Promise<unknown>[]>;
     };
 }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
     ok: (payload?: any) => true;
@@ -175,7 +175,7 @@ declare const _default: import("vue").DefineComponent<{
     slot: {
         type: import("vue").PropType<{
             component: import("vue").Component;
-            componentProps?: {} | undefined;
+            componentProps?: object | undefined;
         }>;
         required: true;
     };
@@ -183,7 +183,7 @@ declare const _default: import("vue").DefineComponent<{
         type: import("vue").PropType<string>;
     };
     dependencies: {
-        type: import("vue").PropType<() => Promise<any>[]>;
+        type: import("vue").PropType<() => Promise<unknown>[]>;
     };
 }>> & {
     onHide?: (() => any) | undefined;

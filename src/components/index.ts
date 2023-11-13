@@ -40,13 +40,13 @@ export interface AppFormProps {
   modelValue?: { [key: string]: unknown } & {}
 }
 
-export interface AppModalCustomProps<T extends {}> {
+export interface AppModalCustomProps<T extends object> {
   slot: {
     component: Component
     componentProps?: T
   }
   title?: string
-  dependencies?: () => Promise<any>[]
+  dependencies?: () => Promise<unknown>[]
 }
 
 export interface AppModalEmits<T = undefined> {
@@ -63,7 +63,8 @@ export interface AppModalProvider<T = unknown[]> {
   onDialogCancel: () => void
 }
 
-export type AppModalProps<T extends {}> = QDialogProps & AppModalCustomProps<T>
+export type AppModalProps<T extends object> = QDialogProps &
+  AppModalCustomProps<T>
 
 export interface AppListItemProps {
   componentProps?: QItem

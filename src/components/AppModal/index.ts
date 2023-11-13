@@ -3,8 +3,11 @@ import AppModal from './AppModal.vue'
 import { Dialog } from 'quasar'
 import { AppModalProps, AppModalProvider } from '..'
 
-const useAppModal = <T extends {}>(componentProps: AppModalProps<T>) => {
-  return Dialog.create({
+const useAppModal = <T extends {}>(
+  dialog: Dialog,
+  componentProps: AppModalProps<T>,
+) => {
+  return dialog.create({
     component: AppModal,
     componentProps,
   })

@@ -120,9 +120,10 @@ Uses quasar dialog plugin.
 Open Modal
 
 ```ts
+import { Dialog } from 'quasar'
 import { useAppModal } from 'quasar-app-components'
 
-useAppModal({
+useAppModal(Dialog, {
   // Qdialog props
   persistent: true,
   // Modal title
