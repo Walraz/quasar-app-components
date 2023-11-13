@@ -45,6 +45,7 @@ export interface AppModalCustomProps<T extends object> {
     component: Component
     componentProps?: T
   }
+  width?: number
   title?: string
   dependencies?: () => Promise<unknown>[]
 }

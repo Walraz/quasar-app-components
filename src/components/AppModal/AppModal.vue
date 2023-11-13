@@ -1,6 +1,6 @@
 <template>
   <q-dialog ref="dialogRef" @hide="onDialogHide">
-    <q-card square style="min-width: 360px">
+    <q-card square :style="cardStyle">
       <q-card-section class="flex">
         <div v-if="title" class="text-body1 text-weight-medium">
           {{ title }}
@@ -62,6 +62,12 @@ const props = defineProps<AppModalProps<object>>()
 defineEmits({
   ...useDialogPluginComponent.emitsObject,
 })
+
+const cardStyle = {
+  minWidth: '360px',
+  width: props.width ? `${props.width}px` : '',
+  maxWidth: props.width ? `${props.width}px` : '',
+}
 
 const { dialogRef, onDialogHide, onDialogOK, onDialogCancel } =
   useDialogPluginComponent()

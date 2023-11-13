@@ -84,6 +84,9 @@ declare const _default: import("vue").DefineComponent<{
         }>;
         required: true;
     };
+    width: {
+        type: import("vue").PropType<number>;
+    };
     title: {
         type: import("vue").PropType<string>;
     };
@@ -178,6 +181,9 @@ declare const _default: import("vue").DefineComponent<{
             componentProps?: object | undefined;
         }>;
         required: true;
+    };
+    width: {
+        type: import("vue").PropType<number>;
     };
     title: {
         type: import("vue").PropType<string>;
