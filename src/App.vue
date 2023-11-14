@@ -34,7 +34,7 @@
 
 <script lang="ts">
 import { computed, defineComponent, ref } from 'vue'
-import { QInput, QCardSection, QForm, QCardActions } from 'quasar'
+import { QInput, QCardSection, QForm, QCardActions, Dialog } from 'quasar'
 import { format } from 'date-fns'
 import {
   IUser,
@@ -49,6 +49,8 @@ import { inputStyleProps } from './common/inputStyleProps'
 import { buttonStyleProps } from './common/buttonStyleProps'
 import { inputFormRule } from './common/inputFormRule'
 import { AppForm, AppSelect } from 'quasar-app-components'
+import { useAppModal } from './components/AppModal'
+import TestModal from './TestModal.vue'
 
 export default defineComponent({
   components: {
@@ -57,6 +59,14 @@ export default defineComponent({
 
   setup() {
     const options = ref<{ label: string; value: number }[]>([])
+
+    useAppModal(Dialog, {
+      persistent: true,
+      slot: {
+        component: TestModal,
+        componentProps: {},
+      },
+    })
 
     setTimeout(() => {
       options.value = [

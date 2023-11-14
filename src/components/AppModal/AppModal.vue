@@ -1,5 +1,5 @@
 <template>
-  <q-dialog ref="dialogRef" @hide="onDialogHide">
+  <q-dialog v-bind="$props" ref="dialogRef" @hide="onDialogHide">
     <q-card square :style="cardStyle">
       <q-card-section class="flex">
         <div v-if="title" class="text-body1 text-weight-medium">

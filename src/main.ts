@@ -1,6 +1,6 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import { Quasar } from 'quasar'
+import { Quasar, Dialog } from 'quasar'
 import quasarLang from 'quasar/lang/sv'
 import quasarIconSet from 'quasar/icon-set/svg-material-icons'
 import i18next from 'i18next'
@@ -27,7 +27,7 @@ z.setErrorMap(zodI18nMap)
 const app = createApp(App)
 
 app.use(Quasar, {
-  plugins: {}, // import Quasar plugins and add here
+  plugins: { Dialog }, // import Quasar plugins and add here
   lang: quasarLang,
   iconSet: quasarIconSet,
 })

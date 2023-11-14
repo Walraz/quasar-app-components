@@ -1,4 +1,4 @@
-import { computed as d, markRaw as Ll, defineComponent as ut, getCurrentInstance as ee, h as p, ref as A, toRaw as Te, withDirectives as kn, provide as Ol, onDeactivated as gt, onActivated as qn, onMounted as pt, nextTick as pe, watch as J, openBlock as te, createBlock as ve, unref as He, withCtx as le, renderSlot as en, resolveDynamicComponent as dn, createElementVNode as De, createElementBlock as _e, Fragment as Tt, renderList as fn, normalizeClass as Ot, mergeProps as vt, toHandlers as Ro, createVNode as ne, createCommentVNode as Ce, reactive as Po, inject as Ao, onBeforeUnmount as de, onBeforeUpdate as Rl, Transition as Qe, onUnmounted as Mo, Teleport as Fo, onBeforeMount as zo, onUpdated as Ho, createTextVNode as Rt, shallowRef as Io, toDisplayString as vn, normalizeProps as Do, guardReactiveProps as jo } from "vue";
+import { computed as d, markRaw as Ll, defineComponent as rt, getCurrentInstance as ee, h as p, ref as A, toRaw as Te, withDirectives as kn, provide as Ol, onDeactivated as gt, onActivated as qn, onMounted as pt, nextTick as pe, watch as J, openBlock as te, createBlock as ve, unref as He, withCtx as le, renderSlot as en, resolveDynamicComponent as dn, createElementVNode as De, createElementBlock as _e, Fragment as Tt, renderList as fn, normalizeClass as Ot, mergeProps as at, toHandlers as Ro, createVNode as ne, createCommentVNode as Ce, reactive as Po, inject as Ao, onBeforeUnmount as de, onBeforeUpdate as Rl, Transition as Qe, onUnmounted as Mo, Teleport as Fo, onBeforeMount as zo, onUpdated as Ho, createTextVNode as Rt, shallowRef as Io, toDisplayString as vn, normalizeProps as Do, guardReactiveProps as jo } from "vue";
 import Zn from "lodash.set";
 import Jn from "lodash.get";
 const Be = {
@@ -10,7 +10,7 @@ const Be = {
 function Ve(e, t) {
   return d(() => e.dark === null ? t.dark.isActive : e.dark);
 }
-const ie = (e) => Ll(ut(e)), Pl = (e) => Ll(e), No = {
+const ie = (e) => Ll(rt(e)), Pl = (e) => Ll(e), No = {
   true: "inset",
   item: "item-inset",
   "item-thumbnail": "item-thumbnail-inset"
@@ -288,7 +288,7 @@ const Jo = ie({
 }, ti = { class: "col" }, ni = {
   key: 0,
   class: "col-auto flex"
-}, ru = /* @__PURE__ */ ut({
+}, ru = /* @__PURE__ */ rt({
   __name: "AppForm",
   props: {
     modelSchema: {},
@@ -382,7 +382,7 @@ const Jo = ie({
                           ...b.value(w)
                         }
                       }, () => [
-                        (te(), ve(dn(w.component), vt(b.value(w).bind, Ro(b.value(w).on)), null, 16))
+                        (te(), ve(dn(w.component), at(b.value(w).bind, Ro(b.value(w).on)), null, 16))
                       ])
                     ], 2))), 128))
                   ], 2)
@@ -2168,18 +2168,18 @@ function Zi(e, t = !0) {
   return !e || e.nodeType !== Node.ELEMENT_NODE ? !1 : t ? e.scrollHeight > e.clientHeight && (e.classList.contains("scroll") || e.classList.contains("overflow-auto") || ["auto", "scroll"].includes(window.getComputedStyle(e)["overflow-y"])) : e.scrollWidth > e.clientWidth && (e.classList.contains("scroll") || e.classList.contains("overflow-auto") || ["auto", "scroll"].includes(window.getComputedStyle(e)["overflow-x"]));
 }
 const Ne = [];
-let at;
+let ut;
 function Ji(e) {
-  at = e.keyCode === 27;
+  ut = e.keyCode === 27;
 }
 function ea() {
-  at === !0 && (at = !1);
+  ut === !0 && (ut = !1);
 }
 function ta(e) {
-  at === !0 && (at = !1, Re(e, 27) === !0 && Ne[Ne.length - 1](e));
+  ut === !0 && (ut = !1, Re(e, 27) === !0 && Ne[Ne.length - 1](e));
 }
 function ao(e) {
-  window[e]("keydown", Ji), window[e]("blur", ea), window[e]("keyup", ta), at = !1;
+  window[e]("keydown", Ji), window[e]("blur", ea), window[e]("keyup", ta), ut = !1;
 }
 function uo(e) {
   he.is.desktop === !0 && (Ne.push(e), Ne.length === 1 && ao("addEventListener"));
@@ -2564,7 +2564,7 @@ function ia(e, t, n) {
     }
   };
 }
-let ct = 0, un, rn, ft, sn = !1, yl, wl, Sl, ze = null;
+let dt = 0, un, rn, vt, sn = !1, yl, wl, Sl, ze = null;
 function aa(e) {
   ua(e) && oe(e);
 }
@@ -2586,7 +2586,7 @@ function Vt(e) {
   sn !== !0 && (sn = !0, requestAnimationFrame(() => {
     sn = !1;
     const { height: t } = e.target, { clientHeight: n, scrollTop: l } = document.scrollingElement;
-    (ft === void 0 || t !== window.innerHeight) && (ft = n - t, document.scrollingElement.scrollTop = l), l > ft && (document.scrollingElement.scrollTop -= Math.ceil((l - ft) / 8));
+    (vt === void 0 || t !== window.innerHeight) && (vt = n - t, document.scrollingElement.scrollTop = l), l > vt && (document.scrollingElement.scrollTop -= Math.ceil((l - vt) / 8));
   }));
 }
 function kl(e) {
@@ -2595,19 +2595,19 @@ function kl(e) {
     const { overflowY: l, overflowX: o } = window.getComputedStyle(t);
     un = Yi(window), rn = Xi(window), yl = t.style.left, wl = t.style.top, Sl = window.location.href, t.style.left = `-${un}px`, t.style.top = `-${rn}px`, o !== "hidden" && (o === "scroll" || t.scrollWidth > window.innerWidth) && t.classList.add("q-body--force-scrollbar-x"), l !== "hidden" && (l === "scroll" || t.scrollHeight > window.innerHeight) && t.classList.add("q-body--force-scrollbar-y"), t.classList.add("q-body--prevent-scroll"), document.qScrollPrevented = !0, he.is.ios === !0 && (n === !0 ? (window.scrollTo(0, 0), window.visualViewport.addEventListener("resize", Vt, be.passiveCapture), window.visualViewport.addEventListener("scroll", Vt, be.passiveCapture), window.scrollTo(0, 0)) : window.addEventListener("scroll", xl, be.passiveCapture));
   }
-  he.is.desktop === !0 && he.is.mac === !0 && window[`${e}EventListener`]("wheel", aa, be.notPassive), e === "remove" && (he.is.ios === !0 && (n === !0 ? (window.visualViewport.removeEventListener("resize", Vt, be.passiveCapture), window.visualViewport.removeEventListener("scroll", Vt, be.passiveCapture)) : window.removeEventListener("scroll", xl, be.passiveCapture)), t.classList.remove("q-body--prevent-scroll"), t.classList.remove("q-body--force-scrollbar-x"), t.classList.remove("q-body--force-scrollbar-y"), document.qScrollPrevented = !1, t.style.left = yl, t.style.top = wl, window.location.href === Sl && window.scrollTo(un, rn), ft = void 0);
+  he.is.desktop === !0 && he.is.mac === !0 && window[`${e}EventListener`]("wheel", aa, be.notPassive), e === "remove" && (he.is.ios === !0 && (n === !0 ? (window.visualViewport.removeEventListener("resize", Vt, be.passiveCapture), window.visualViewport.removeEventListener("scroll", Vt, be.passiveCapture)) : window.removeEventListener("scroll", xl, be.passiveCapture)), t.classList.remove("q-body--prevent-scroll"), t.classList.remove("q-body--force-scrollbar-x"), t.classList.remove("q-body--force-scrollbar-y"), document.qScrollPrevented = !1, t.style.left = yl, t.style.top = wl, window.location.href === Sl && window.scrollTo(un, rn), vt = void 0);
 }
 function ra(e) {
   let t = "add";
   if (e === !0) {
-    if (ct++, ze !== null) {
+    if (dt++, ze !== null) {
       clearTimeout(ze), ze = null;
       return;
     }
-    if (ct > 1)
+    if (dt > 1)
       return;
   } else {
-    if (ct === 0 || (ct--, ct > 0))
+    if (dt === 0 || (dt--, dt > 0))
       return;
     if (t = "remove", he.is.ios === !0 && he.is.nativeMobile === !0) {
       ze !== null && clearTimeout(ze), ze = setTimeout(() => {
@@ -2859,7 +2859,7 @@ function cn(e, t, n, l, o, i, u, r) {
 function Cl(e, t, n, l) {
   t === "end" && (t = (e === window ? document.body : e)[n === !0 ? "scrollWidth" : "scrollHeight"]), e === window ? n === !0 ? (l === !0 && (t = (Wt === !0 ? document.body.scrollWidth - document.documentElement.clientWidth : 0) - t), window.scrollTo(t, window.pageYOffset || window.scrollY || document.body.scrollTop || 0)) : window.scrollTo(window.pageXOffset || window.scrollX || document.body.scrollLeft || 0, t) : n === !0 ? (l === !0 && (t = (Wt === !0 ? e.scrollWidth - e.offsetWidth : 0) - t), e.scrollLeft = t) : e.scrollTop = t;
 }
-function dt(e, t, n, l) {
+function ft(e, t, n, l) {
   if (n >= l)
     return 0;
   const o = t.length, i = Math.floor(n / xe), u = Math.floor((l - 1) / xe) + 1;
@@ -3004,8 +3004,8 @@ function ha({
     const wt = H !== void 0 ? c.slice(q, L).reduce(it, 0) : 0;
     if ($e === !0) {
       const Ae = se >= B.value.from && q <= B.value.to ? B.value.to : se;
-      B.value = { from: q, to: Ae }, h.value = dt(m, c, 0, q), b.value = dt(m, c, se, e.value), requestAnimationFrame(() => {
-        B.value.to !== se && g === F.scrollStart && (B.value = { from: B.value.from, to: se }, b.value = dt(m, c, se, e.value));
+      B.value = { from: q, to: Ae }, h.value = ft(m, c, 0, q), b.value = ft(m, c, se, e.value), requestAnimationFrame(() => {
+        B.value.to !== se && g === F.scrollStart && (B.value = { from: B.value.from, to: se }, b.value = ft(m, c, se, e.value));
       });
     }
     requestAnimationFrame(() => {
@@ -3013,14 +3013,14 @@ function ha({
         return;
       $e === !0 && X(q);
       const Ae = c.slice(q, L).reduce(it, 0), Ue = Ae + F.offsetStart + h.value, St = Ue + c[L];
-      let rt = Ue + Q;
+      let st = Ue + Q;
       if (H !== void 0) {
         const Ut = Ae - wt, ge = F.scrollStart + Ut;
-        rt = P !== !0 && ge < Ue && St < ge + F.scrollViewSize ? ge : H === "end" ? St - F.scrollViewSize : Ue - (H === "start" ? 0 : Math.round((F.scrollViewSize - c[L]) / 2));
+        st = P !== !0 && ge < Ue && St < ge + F.scrollViewSize ? ge : H === "end" ? St - F.scrollViewSize : Ue - (H === "start" ? 0 : Math.round((F.scrollViewSize - c[L]) / 2));
       }
-      g = rt, Cl(
+      g = st, Cl(
         _,
-        rt,
+        st,
         i.virtualScrollHorizontal,
         f.lang.rtl
       ), N(L);
@@ -3060,7 +3060,7 @@ function ha({
         H += c[q];
       m.push(H);
     }
-    s = -1, g = void 0, h.value = dt(m, c, 0, B.value.from), b.value = dt(m, c, B.value.to, e.value), _ >= 0 ? (X(B.value.from), pe(() => {
+    s = -1, g = void 0, h.value = ft(m, c, 0, B.value.from), b.value = ft(m, c, B.value.to, e.value), _ >= 0 ? (X(B.value.from), pe(() => {
       Z(_);
     })) : re();
   }
@@ -3447,7 +3447,7 @@ const El = (e) => ["add", "add-unique", "toggle"].includes(e), Sa = ".*+?^${}()|
           itemProps: ue
         };
       });
-    }), St = d(() => e.dropdownIcon !== void 0 ? e.dropdownIcon : o.iconSet.arrow.dropdown), rt = d(
+    }), St = d(() => e.dropdownIcon !== void 0 ? e.dropdownIcon : o.iconSet.arrow.dropdown), st = d(
       () => e.optionsCover === !1 && e.outlined !== !0 && e.standout !== !0 && e.borderless !== !0 && e.rounded !== !0
     ), Ut = d(() => e.optionsSelectedClass !== void 0 ? e.optionsSelectedClass : e.color !== void 0 ? `text-${e.color}` : ""), ge = d(() => Yt(e.optionValue, "value")), ye = d(() => Yt(e.optionLabel, "label")), Xe = d(() => Yt(e.optionDisable, "disable")), xt = d(() => _.value.map((a) => ge.value(a))), bo = d(() => {
       const a = {
@@ -3487,7 +3487,7 @@ const El = (e) => ["add", "add-unique", "toggle"].includes(e), Sa = ".*+?^${}()|
     function zn(a, V) {
       const E = Fn(a);
       if (e.multiple !== !0) {
-        e.fillInput === !0 && st(
+        e.fillInput === !0 && ct(
           ye.value(a),
           !0,
           !0
@@ -3508,7 +3508,7 @@ const El = (e) => ["add", "add-unique", "toggle"].includes(e), Sa = ".*+?^${}()|
         return;
       const E = ge.value(a);
       if (e.multiple !== !0) {
-        V !== !0 && (st(
+        V !== !0 && (ct(
           e.fillInput === !0 ? ye.value(a) : "",
           !0,
           !0
@@ -3647,7 +3647,7 @@ const El = (e) => ["add", "add-unique", "toggle"].includes(e), Sa = ".*+?^${}()|
                 return;
             } else
               ue = e.newValueMode;
-            if (st("", e.multiple !== !0, !0), Y == null)
+            if (ct("", e.multiple !== !0, !0), Y == null)
               return;
             (ue === "toggle" ? Me : zn)(Y, ue === "add-unique"), e.multiple !== !0 && (x.value !== null && x.value.focus(), Fe());
           };
@@ -3728,7 +3728,7 @@ const El = (e) => ["add", "add-unique", "toggle"].includes(e), Sa = ".*+?^${}()|
     function qt(a) {
       f.value !== a && (f.value = a, n("inputValue", a));
     }
-    function st(a, V, E) {
+    function ct(a, V, E) {
       h = E !== !0, e.useInput === !0 && (qt(a), (V === !0 || E !== !0) && (v = a), V !== !0 && Ge(a));
     }
     function Ge(a, V, E) {
@@ -3770,7 +3770,7 @@ const El = (e) => ["add", "add-unique", "toggle"].includes(e), Sa = ".*+?^${}()|
         noParentEvent: !0,
         noRefocus: !0,
         noFocus: !0,
-        square: rt.value,
+        square: st.value,
         transitionShow: e.transitionShow,
         transitionHide: e.transitionHide,
         transitionDuration: e.transitionDuration,
@@ -3866,7 +3866,7 @@ const El = (e) => ["add", "add-unique", "toggle"].includes(e), Sa = ".*+?^${}()|
       u.value = !1, Ze();
     }
     function et() {
-      e.useInput === !0 && st(
+      e.useInput === !0 && ct(
         e.multiple !== !0 && e.fillInput === !0 && _.value.length !== 0 && ye.value(_.value[0]) || "",
         !0,
         !0
@@ -3913,7 +3913,7 @@ const El = (e) => ["add", "add-unique", "toggle"].includes(e), Sa = ".*+?^${}()|
       moveOptionSelection: kt,
       filter: Ge,
       updateMenuPosition: Un,
-      updateInputValue: st,
+      updateInputValue: ct,
       isOptionSelected: Gt,
       getEmittingOptionValue: Fn,
       isOptionDisabled: (...a) => Xe.value.apply(null, a) === !0,
@@ -4007,7 +4007,7 @@ const El = (e) => ["add", "add-unique", "toggle"].includes(e), Sa = ".*+?^${}()|
       ] : null
     }), Zl(C);
   }
-}), su = /* @__PURE__ */ ut({
+}), su = /* @__PURE__ */ rt({
   __name: "AppSelect",
   props: {
     modelValue: {},
@@ -4061,7 +4061,7 @@ const El = (e) => ["add", "add-unique", "toggle"].includes(e), Sa = ".*+?^${}()|
     }, {
       option: le(({ itemProps: m, opt: c, selected: h, toggleOption: b }) => [
         ne(Pt),
-        ne(Mt, vt(m, {
+        ne(Mt, at(m, {
           disable: c.disable
         }), {
           default: le(() => [
@@ -4793,7 +4793,7 @@ const Ka = {
 }, Ua = {
   class: "scroll",
   style: { "max-height": "300px" }
-}, Xa = { class: "q-px-md q-py-sm bg-red-1 text-red text-caption" }, Ya = /* @__PURE__ */ De("br", null, null, -1), Ga = { style: { "white-space": "pre-wrap" } }, Za = { key: 0 }, Ja = /* @__PURE__ */ ut({
+}, Xa = { class: "q-px-md q-py-sm bg-red-1 text-red text-caption" }, Ya = /* @__PURE__ */ De("br", null, null, -1), Ga = { style: { "white-space": "pre-wrap" } }, Za = { key: 0 }, Ja = /* @__PURE__ */ rt({
   __name: "AppModal",
   props: {
     transitionShow: {},
@@ -4870,11 +4870,11 @@ const Ka = {
       },
       onDialogCancel: u,
       onDialogOK: i
-    }), (h, b) => (te(), ve(mo, {
+    }), (h, b) => (te(), ve(mo, at(h.$props, {
       ref_key: "dialogRef",
       ref: l,
       onHide: He(o)
-    }, {
+    }), {
       default: le(() => [
         ne(ja, {
           square: "",
@@ -4952,7 +4952,7 @@ const Ka = {
         })
       ]),
       _: 1
-    }, 8, ["onHide"]));
+    }, 16, ["onHide"]));
   }
 }), cu = (e, t) => e.create({
   component: Ja,
@@ -5011,7 +5011,7 @@ const nu = Pl(
       e.removeEventListener("click", t.handler), e.removeEventListener("keyup", t.handlerKey), delete e.__qclosepopup;
     }
   }
-), lu = /* @__PURE__ */ ut({
+), lu = /* @__PURE__ */ rt({
   __name: "AppListItem",
   props: {
     props: {},
@@ -5023,7 +5023,7 @@ const nu = Pl(
     }, o = d(() => (t.props.items || []).filter(
       (i) => typeof i.visible == "boolean" ? i.visible : !0
     ));
-    return (i, u) => kn((te(), ve(Mt, vt(i.props.componentProps, {
+    return (i, u) => kn((te(), ve(Mt, at(i.props.componentProps, {
       clickable: "",
       onClick: l
     }), {
@@ -5070,7 +5070,7 @@ const nu = Pl(
           "no-focus": ""
         }, {
           default: le(() => [
-            ne(ou, vt(i.listProps, { items: o.value }), null, 16, ["items"])
+            ne(ou, at(i.listProps, { items: o.value }), null, 16, ["items"])
           ]),
           _: 1
         })) : Ce("", !0)
@@ -5080,7 +5080,7 @@ const nu = Pl(
       [nu, !o.value.length]
     ]);
   }
-}), ou = /* @__PURE__ */ ut({
+}), ou = /* @__PURE__ */ rt({
   __name: "AppList",
   props: {
     items: {},
@@ -5090,7 +5090,7 @@ const nu = Pl(
     const t = e, n = d(() => t.items.filter(
       (l) => typeof l.visible == "boolean" ? l.visible : !0
     ));
-    return (l, o) => (te(), ve(tu, vt({ style: { "min-width": "150px" } }, t.props), {
+    return (l, o) => (te(), ve(tu, at({ style: { "min-width": "150px" } }, t.props), {
       default: le(() => [
         (te(!0), _e(Tt, null, fn(n.value, (i, u) => (te(), ve(lu, {
           "list-props": t.props,
