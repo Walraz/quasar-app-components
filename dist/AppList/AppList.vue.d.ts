@@ -1,9 +1,14 @@
+import { Component } from 'vue';
 import { AppListItemProps } from '..';
 import { QListProps } from 'quasar';
 declare const _default: import("vue").DefineComponent<{
     props: {
         type: import("vue").PropType<QListProps>;
         default: () => {};
+    };
+    component: {
+        type: import("vue").PropType<Component>;
+        required: true;
     };
     items: {
         type: import("vue").PropType<AppListItemProps[]>;
@@ -13,6 +18,10 @@ declare const _default: import("vue").DefineComponent<{
     props: {
         type: import("vue").PropType<QListProps>;
         default: () => {};
+    };
+    component: {
+        type: import("vue").PropType<Component>;
+        required: true;
     };
     items: {
         type: import("vue").PropType<AppListItemProps[]>;

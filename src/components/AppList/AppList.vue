@@ -1,6 +1,7 @@
 <template>
   <q-list style="min-width: 150px" v-bind="props.props">
     <AppListItem
+      :component="props.component"
       :list-props="props.props"
       :props="item"
       :key="$i"
@@ -10,13 +11,14 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { Component, computed } from 'vue'
 import AppListItem from './AppListItem.vue'
 import { AppListItemProps } from '..'
 import { QListProps } from 'quasar'
 
 const props = withDefaults(
   defineProps<{
+    component: Component
     items: AppListItemProps[]
     props?: QListProps
   }>(),

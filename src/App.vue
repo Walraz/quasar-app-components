@@ -27,6 +27,19 @@
         <pre>
           {{ model }}
         </pre>
+
+        <template v-for="nav of navigation" :key="nav.label">
+          <q-btn-dropdown
+            stretch
+            flat
+            :label="nav.label"
+            v-if="nav.items"
+            content-class="no-border-radius"
+          >
+            <AppList :component="QMenu" :items="nav.items" />
+          </q-btn-dropdown>
+          <q-route-tab v-else :label="nav.label" v-bind="nav.componentProps" />
+        </template>
       </q-page>
     </q-page-container>
   </q-layout>
@@ -34,7 +47,14 @@
 
 <script lang="ts">
 import { computed, defineComponent, ref } from 'vue'
-import { QInput, QCardSection, QForm, QCardActions, Dialog } from 'quasar'
+import {
+  QInput,
+  QCardSection,
+  QForm,
+  QCardActions,
+  Dialog,
+  QMenu,
+} from 'quasar'
 import { format } from 'date-fns'
 import {
   IUser,
@@ -48,25 +68,27 @@ import {
 import { inputStyleProps } from './common/inputStyleProps'
 import { buttonStyleProps } from './common/buttonStyleProps'
 import { inputFormRule } from './common/inputFormRule'
-import { AppForm, AppSelect } from 'quasar-app-components'
+import { AppForm, AppSelect, AppList } from 'quasar-app-components'
 import { useAppModal } from './components/AppModal'
 import TestModal from './TestModal.vue'
+import { AppListItemProps } from './components'
 
 export default defineComponent({
   components: {
     AppForm,
+    AppList,
   },
 
   setup() {
     const options = ref<{ label: string; value: number }[]>([])
 
-    useAppModal(Dialog, {
-      persistent: true,
-      slot: {
-        component: TestModal,
-        componentProps: {},
-      },
-    })
+    // useAppModal(Dialog, {
+    //   persistent: true,
+    //   slot: {
+    //     component: TestModal,
+    //     componentProps: {},
+    //   },
+    // })
 
     setTimeout(() => {
       options.value = [
@@ -162,6 +184,61 @@ export default defineComponent({
       ]
     })
 
+    const navigation = computed(() => {
+      return [
+        {
+          label: 'Ersättningstrafik',
+          visible: true,
+          componentProps: {},
+          items: [
+            {
+              label: 'Överblick',
+              componentProps: {
+                to: '/replacement-traffic/overview',
+              },
+              visible: true,
+            },
+            {
+              label: 'Händelser',
+              componentProps: {
+                to: '/replacement-traffic/event',
+              },
+              visible: true,
+            },
+            {
+              label: 'Rapporter',
+              visible: true,
+              items: [
+                {
+                  label: 'Ersättningstrafik',
+                  componentProps: {
+                    to: '/replacement-traffic/report/replacement',
+                  },
+                  visible: true,
+                },
+              ],
+            },
+            {
+              label: 'Masterdata',
+              visible: true,
+              items: [
+                {
+                  label: 'Paketmallar',
+                  visible: true,
+                  clickFn: () => {
+                    console.log('test')
+                  },
+                  componentProps: {
+                    to: '/replacement-traffic/masterdata/template',
+                  },
+                },
+              ],
+            },
+          ],
+        },
+      ] as AppListItemProps[]
+    })
+
     const onSave = (data: IUser) => {
       console.log(data)
     }
@@ -171,8 +248,10 @@ export default defineComponent({
       User,
       model,
       buttonStyleProps,
+      navigation,
       QCardActions,
       QCardSection,
+      QMenu,
       QForm,
     }
   },

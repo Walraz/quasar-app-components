@@ -16,21 +16,33 @@
     </q-item-section>
 
     <template v-if="visibleItems.length">
-      <q-menu square anchor="top end" self="top start" no-focus>
-        <AppList v-bind="listProps" :items="visibleItems" />
-      </q-menu>
+      <component
+        :is="p.component"
+        square
+        anchor="top end"
+        self="top start"
+        no-focus
+        separate-close-popup
+      >
+        <AppList
+          :component="p.component"
+          v-bind="listProps"
+          :items="visibleItems"
+        />
+      </component>
     </template>
   </q-item>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { Component, computed } from 'vue'
 import AppList from './AppList.vue'
 import { AppListItemProps } from '..'
 import { QListProps } from 'quasar'
 
 const p = withDefaults(
   defineProps<{
+    component: Component
     props: AppListItemProps
     listProps?: QListProps
   }>(),
