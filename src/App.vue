@@ -68,15 +68,17 @@ import {
 import { inputStyleProps } from './common/inputStyleProps'
 import { buttonStyleProps } from './common/buttonStyleProps'
 import { inputFormRule } from './common/inputFormRule'
-import { AppForm, AppSelect, AppList } from 'quasar-app-components'
+import { AppForm, AppList } from 'quasar-app-components'
 import { useAppModal } from './components/AppModal'
 import TestModal from './TestModal.vue'
 import { AppListItemProps } from './components'
+import AppSelect from './components/AppSelect/AppSelect.vue'
 
 export default defineComponent({
   components: {
     AppForm,
     AppList,
+    AppSelect,
   },
 
   setup() {
@@ -171,14 +173,13 @@ export default defineComponent({
           component: AppSelect,
           layoutSlot: 2,
           cols: 12,
-          defaultValue: [],
+          defaultValue: '',
           componentProps: {
             ...inputStyleProps,
             label: 'Test',
             loading: !options.value.length,
             rules: [inputFormRule(UserTestUuid)],
             options: options.value,
-            multiple: true,
           },
         },
       ]

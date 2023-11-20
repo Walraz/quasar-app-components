@@ -22,7 +22,7 @@ declare const _default: import("vue").DefineComponent<{
     };
     virtualScrolltemSize: {
         type: import("vue").PropType<number>;
-        default: () => 24;
+        default: () => 28;
     };
     transformNewValueFn: {
         type: import("vue").PropType<(v: string) => string>;
@@ -50,7 +50,7 @@ declare const _default: import("vue").DefineComponent<{
     };
     virtualScrolltemSize: {
         type: import("vue").PropType<number>;
-        default: () => 24;
+        default: () => 28;
     };
     transformNewValueFn: {
         type: import("vue").PropType<(v: string) => string>;

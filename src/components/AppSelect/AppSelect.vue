@@ -18,8 +18,11 @@
     @new-value="createValue"
   >
     <template #option="{ itemProps, opt, selected, toggleOption }">
-      <q-separator />
-      <q-item v-bind="itemProps" :disable="opt.disable">
+      <q-item
+        v-bind="itemProps"
+        :disable="opt.disable"
+        style="border-top: 1px solid rgba(0, 0, 0, 0.08)"
+      >
         <q-item-section side>
           <q-checkbox
             dense
@@ -30,8 +33,10 @@
         </q-item-section>
 
         <q-item-section>
-          <q-item-label v-html="opt.label" />
-          <q-item-label caption v-if="opt.caption" v-html="opt.caption" />
+          <q-item-label>{{ opt.label }}</q-item-label>
+          <q-item-label caption v-if="opt.caption">{{
+            opt.caption
+          }}</q-item-label>
         </q-item-section>
       </q-item>
     </template>
@@ -68,8 +73,8 @@ const props = withDefaults(
     exactFilterMatch?: boolean
   }>(),
   {
+    virtualScrolltemSize: () => 28,
     multiple: () => false,
-    virtualScrolltemSize: () => 24,
     transformNewValueFn: (v: string) => v,
     exactFilterMatch: false,
   },
