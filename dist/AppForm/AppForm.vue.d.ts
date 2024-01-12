@@ -81,8 +81,8 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
 }, {}>, Partial<Record<string, (_: {
     props: {
         bind: {
-            readonly: boolean;
-            disable: boolean;
+            readonly: unknown;
+            disable: unknown;
             modelValue: any;
             error: boolean;
             errorMessage: string;
