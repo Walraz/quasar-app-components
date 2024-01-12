@@ -82,7 +82,7 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
     props: {
         bind: {
             readonly: unknown;
-            disable: unknown;
+            disable: {};
             modelValue: any;
             error: boolean;
             errorMessage: string;

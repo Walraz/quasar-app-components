@@ -337,18 +337,18 @@ const Zo = ie({
       var v;
       u(), (v = l.value) == null || v.resetValidation(), t("reset");
     }, h = () => r(n.modelSchema), b = d(() => (v) => {
-      var k, S;
+      var k, S, w;
       return {
         bind: {
           ...v.componentProps || {},
-          readonly: n.readonly || ((k = v.componentProps) == null ? void 0 : k.readonly),
-          disable: n.disable || ((S = v.componentProps) == null ? void 0 : S.disable),
+          readonly: ((k = v.componentProps) == null ? void 0 : k.readonly) || ((S = v.componentProps) == null ? void 0 : S.readonly),
+          disable: ((w = v.componentProps) == null ? void 0 : w.disable) || n.disable,
           modelValue: s(v.scope),
           error: !!g.value[v.scope],
           errorMessage: g.value[v.scope] || ""
         },
         on: {
-          "update:modelValue": (w) => y(w, v)
+          "update:modelValue": (B) => y(B, v)
         }
       };
     });
