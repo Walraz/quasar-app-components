@@ -135,8 +135,8 @@ const propsAndEvent = computed(() => {
   return (field: AppFormSchemaField) => ({
     bind: {
       ...(field.componentProps || {}),
-      readonly: props.readonly,
-      disable: props.disable,
+      readonly: props.readonly || field.componentProps?.readonly,
+      disable: props.disable || field.componentProps?.disable,
       modelValue: getterScope(field.scope),
       error: Boolean(fieldError.value[field.scope]),
       errorMessage: fieldError.value[field.scope] || '',
