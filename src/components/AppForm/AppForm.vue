@@ -86,7 +86,13 @@ const setDefaultValues = (
   return model
 }
 
-const emit = defineEmits(['submit', 'update:modelValue', 'reset', 'close'])
+const emit = defineEmits([
+  'submit',
+  'update:modelValue',
+  'reset',
+  'close',
+  'error',
+])
 const { resetDefaultForm, validateForm, formData, fieldError } = useForm(
   setDefaultValues(props.modelValue, props.schema),
 )
@@ -119,7 +125,10 @@ const setterScope = (value: any, field: AppFormSchemaField) => {
 
 const onSubmit = () => {
   validateForm(props.modelSchema)
-  if (!validateForm(props.modelSchema)) return
+  if (!validateForm(props.modelSchema)) {
+    emit('error', fieldError)
+    return
+  }
   emit('submit', toRaw(formData.value))
 }
 

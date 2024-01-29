@@ -300,7 +300,13 @@ const Zo = ie({
     colGutter: { default: () => "sm" },
     modelValue: {}
   },
-  emits: ["submit", "update:modelValue", "reset", "close"],
+  emits: [
+    "submit",
+    "update:modelValue",
+    "reset",
+    "close",
+    "error"
+  ],
   setup(e, { emit: t }) {
     const n = e, l = A(), o = Math.max(...n.schema.map((v) => v.column || 1)), i = (v = {}, k) => {
       for (const S of k) {
@@ -332,7 +338,11 @@ const Zo = ie({
         k != null && k.transform ? k == null ? void 0 : k.transform(v) : v
       ), g.value[k.scope] && r(n.modelSchema);
     }, m = () => {
-      r(n.modelSchema), r(n.modelSchema) && t("submit", Te(f.value));
+      if (r(n.modelSchema), !r(n.modelSchema)) {
+        t("error", g);
+        return;
+      }
+      t("submit", Te(f.value));
     }, c = () => {
       var v;
       u(), (v = l.value) == null || v.resetValidation(), t("reset");

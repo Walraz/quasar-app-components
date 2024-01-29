@@ -33,7 +33,7 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
             [key: string]: unknown;
         }>;
     };
-}, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("submit" | "update:modelValue" | "reset" | "close")[], "submit" | "update:modelValue" | "reset" | "close", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+}, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("submit" | "update:modelValue" | "reset" | "close" | "error")[], "submit" | "update:modelValue" | "reset" | "close" | "error", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     modelSchema: {
         type: import("vue").PropType<import("zod").ZodType<any, import("zod").ZodTypeDef, any>>;
         required: true;
@@ -72,6 +72,7 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
     "onUpdate:modelValue"?: ((...args: any[]) => any) | undefined;
     onReset?: ((...args: any[]) => any) | undefined;
     onClose?: ((...args: any[]) => any) | undefined;
+    onError?: ((...args: any[]) => any) | undefined;
 }, {
     readonly: boolean;
     disable: boolean;
