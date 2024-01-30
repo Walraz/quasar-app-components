@@ -98,6 +98,16 @@ const { resetDefaultForm, validateForm, formData, fieldError } = useForm(
 )
 
 watch(
+  fieldError,
+  (value) => {
+    emit('error', value)
+  },
+  {
+    deep: true,
+  },
+)
+
+watch(
   formData,
   (value) => {
     emit('update:modelValue', value)
@@ -126,7 +136,6 @@ const setterScope = (value: any, field: AppFormSchemaField) => {
 const onSubmit = () => {
   validateForm(props.modelSchema)
   if (!validateForm(props.modelSchema)) {
-    emit('error', fieldError)
     return
   }
   emit('submit', toRaw(formData.value))
