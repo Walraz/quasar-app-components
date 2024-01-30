@@ -59,6 +59,7 @@ const schema: AppFormSchemaField[] = [
 | -------- | ----------------------------------- |
 | `submit` | Returns validated formData if valid |
 | `reset`  | Reset formData to defaultValues     |
+| `error`  | Returns field errors                |
 
 | Slot      |                               |
 | --------- | ----------------------------- |

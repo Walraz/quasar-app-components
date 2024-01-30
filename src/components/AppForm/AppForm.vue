@@ -59,6 +59,7 @@ import { QForm } from 'quasar'
 import { AppFormProps, AppFormSchemaField } from '..'
 
 const form = ref<QForm>()
+const isDirty = ref(false)
 const props = withDefaults(defineProps<AppFormProps>(), {
   colGutter: () => 'sm',
   fieldWrapper: () => 'div',
@@ -128,12 +129,13 @@ const setterScope = (value: any, field: AppFormSchemaField) => {
     field.scope,
     field?.transform ? field?.transform(value) : value,
   )
-  if (fieldError.value[field.scope]) {
+  if (isDirty.value) {
     validateForm(props.modelSchema)
   }
 }
 
 const onSubmit = () => {
+  isDirty.value = true
   validateForm(props.modelSchema)
   if (!validateForm(props.modelSchema)) {
     return
